@@ -10,4 +10,7 @@
     <string name="deskripsiWelcome">Aplikasi deteksi kanker kulit untuk anda!\nCegah sekarang untuk hari esok yang tenang.\n\n\nCukup sekali klik, sleanjutnya biarkan kami yang bekerja!</string>
     <string name="deteksi_sekarang">Deteksi Sekarang!</string>
     <string name="dicoding_submition">Dicoding Submition</string>
+    <string name="original_made">Original Made\nMuhammad Juzairi Safitli</string>
+    <string name="skin_cancer_detector">Skin Cancer\nDetector</string>
+    <string name="app_logo">App Logo</string>
 </resources>
