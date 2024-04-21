@@ -13,4 +13,6 @@
     <string name="original_made">Original Made\nMuhammad Juzairi Safitli</string>
     <string name="skin_cancer_detector">Skin Cancer\nDetector</string>
     <string name="app_logo">App Logo</string>
+    <string name="image_classifier_failed">Proses image classifier gagal </string>
+    <string name="empty_image_warning">"Tidak ada gambar yang ditemukan "</string>
 </resources>

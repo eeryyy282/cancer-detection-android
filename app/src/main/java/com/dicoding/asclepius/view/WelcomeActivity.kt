@@ -25,6 +25,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding.buttonStart.setOnClickListener {
             intent = Intent(this@WelcomeActivity, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
