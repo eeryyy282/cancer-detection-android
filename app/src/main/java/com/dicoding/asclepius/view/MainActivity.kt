@@ -2,16 +2,19 @@ package com.dicoding.asclepius.view
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.asclepius.databinding.ActivityMainBinding
 import com.dicoding.asclepius.helper.ImageClassifierHelper
+import com.yalantis.ucrop.UCrop
 import org.tensorflow.lite.task.vision.classifier.Classifications
+import java.io.File
 import java.text.NumberFormat
+import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +32,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @Deprecated("Deprecated in Java")
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            currentImageUri = UCrop.getOutput(data!!)
+            showImage()
+
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            val cropError = UCrop.getError(data!!)
+            Log.d("Fungsi crop error", "showImage: $cropError")
+        }
+    }
+
     private fun startGallery() {
         launchGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
@@ -37,12 +53,24 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.PickVisualMedia()
     ) { uri: Uri? ->
         if (uri != null) {
-            currentImageUri = uri
-            showImage()
+            launchUCrop(uri)
         } else {
             Log.d("Photo Picker", "Foto tidak ditemukan")
         }
     }
+
+    private fun launchUCrop(uri: Uri) {
+        val destination: String = StringBuilder(UUID.randomUUID().toString()).toString()
+        val option: UCrop.Options = UCrop.Options()
+
+        UCrop.of(Uri.parse(uri.toString()), Uri.fromFile(File(destination)))
+            .withOptions(option)
+            .withAspectRatio(0f, 0f)
+            .useSourceImageAspectRatio()
+            .withMaxResultSize(3000, 3000)
+            .start(this)
+    }
+
 
     private fun showImage() {
         currentImageUri?.let {
