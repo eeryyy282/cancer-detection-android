@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     @Deprecated("Deprecated in Java")
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         } else if (resultCode == UCrop.RESULT_ERROR) {
             val cropError = UCrop.getError(data!!)
             Log.d("Fungsi crop error", "showImage: $cropError")
+            showToast("Fungsi crop error")
         }
     }
 
@@ -60,11 +62,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchUCrop(uri: Uri) {
-        val destination: String = StringBuilder(UUID.randomUUID().toString()).toString()
-        val option: UCrop.Options = UCrop.Options()
+        val destinationFileName = "cropped_image.jpg"
+        val destinationUri = Uri.fromFile(File(filesDir, destinationFileName))
 
-        UCrop.of(Uri.parse(uri.toString()), Uri.fromFile(File(destination)))
-            .withOptions(option)
+        val options = UCrop.Options()
+        options.setCompressionQuality(100)
+
+        UCrop.of(uri, destinationUri)
+            .withOptions(options)
             .withAspectRatio(0f, 0f)
             .useSourceImageAspectRatio()
             .withMaxResultSize(3000, 3000)
@@ -97,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                                 "${it.label} " + NumberFormat.getPercentInstance()
                                     .format(it.score).trim()
                             }
+
                     }
                 }
 
