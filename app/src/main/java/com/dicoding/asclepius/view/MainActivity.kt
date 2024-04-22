@@ -102,7 +102,6 @@ class MainActivity : AppCompatActivity() {
                                 "${it.label} " + NumberFormat.getPercentInstance()
                                     .format(it.score).trim()
                             }
-
                     }
                 }
 

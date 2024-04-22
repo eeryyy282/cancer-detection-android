@@ -23,7 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         binding.buttonStart.setOnClickListener {
-            intent = Intent(this@WelcomeActivity, MainActivity::class.java)
+            intent = Intent(this@WelcomeActivity, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }

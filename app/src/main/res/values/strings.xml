@@ -15,4 +15,8 @@
     <string name="app_logo">App Logo</string>
     <string name="image_classifier_failed">Proses image classifier gagal </string>
     <string name="empty_image_warning">"Tidak ada gambar yang ditemukan "</string>
+    <string name="preview_image">Preview Image</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_history">Riwayat</string>
 </resources>
