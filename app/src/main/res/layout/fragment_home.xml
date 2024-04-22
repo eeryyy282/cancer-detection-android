@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title_home" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/cancerScannerHome"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
