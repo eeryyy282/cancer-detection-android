@@ -2,7 +2,7 @@
 <resources>
 
     <style name="HomeTheme" parent="Theme.Material3.DayNight">
-        <item name="colorPrimary">@color/darkBlue</item>
+        <item name="colorPrimary">@color/blue</item>
     </style>
 
 </resources>

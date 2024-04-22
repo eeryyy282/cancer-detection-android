@@ -12,6 +12,7 @@
     <string name="dicoding_submition">Dicoding Submition</string>
     <string name="original_made">Original Made\nMuhammad Juzairi Safitli</string>
     <string name="skin_cancer_detector">Skin Cancer\nDetector</string>
+    <string name="skin_cancer_detector_home">Skin Cancer Detector</string>
     <string name="app_logo">App Logo</string>
     <string name="image_classifier_failed">Proses image classifier gagal </string>
     <string name="empty_image_warning">"Tidak ada gambar yang ditemukan "</string>
@@ -19,4 +20,6 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Beranda</string>
     <string name="title_history">Riwayat</string>
+    <string name="scancancer">ScanCancer</string>
+    <string name="des_home">Cek kondisi kulitmu!\nCari tahu masalah kulitmu dengan sekali klik!</string>
 </resources>

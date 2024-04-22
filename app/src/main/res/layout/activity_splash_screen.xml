@@ -27,7 +27,7 @@
         android:fontFamily="@font/poppins"
         android:text="@string/skin_cancer_detector"
         android:textAlignment="center"
-        android:textColor="@color/darkBlue"
+        android:textColor="@color/blue"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
