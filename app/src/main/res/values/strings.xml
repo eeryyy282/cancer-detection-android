@@ -25,4 +25,5 @@
     <string name="judul_artikel">Judul Artikel</string>
     <string name="tanggal_publikasi">Tanggal Publikasi</string>
     <string name="author">Author</string>
+    <string name="tv_title_history">Riwayat analisis kanker kulit anda akan disimpan di sini</string>
 </resources>
