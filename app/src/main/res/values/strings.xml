@@ -22,4 +22,7 @@
     <string name="title_history">Riwayat</string>
     <string name="scancancer">ScanCancer</string>
     <string name="des_home">Cek kondisi kulitmu!\nCari tahu masalah kulitmu dengan sekali klik!</string>
+    <string name="judul_artikel">Judul Artikel</string>
+    <string name="tanggal_publikasi">Tanggal Publikasi</string>
+    <string name="author">Author</string>
 </resources>

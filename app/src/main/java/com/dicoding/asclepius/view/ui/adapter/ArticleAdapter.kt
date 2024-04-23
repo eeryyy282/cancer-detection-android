@@ -1,41 +1,56 @@
 package com.dicoding.asclepius.view.ui.adapter
 
 import android.annotation.SuppressLint
-import android.os.Parcel
-import android.os.Parcelable
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.dicoding.asclepius.data.local.entity.ArticleEntity
-import com.dicoding.asclepius.view.ui.adapter.ArticleAdapter.MyViewHolder
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.dicoding.asclepius.data.remote.response.ArticlesItem
+import com.dicoding.asclepius.databinding.ItemArticlesBinding
 
-class ArticleAdapter() : ListAdapter<ArticleEntity, MyViewHolder>(DIFF_CALLBACK) {
+
+class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        TODO("Not yet implemented")
+        val binding =
+            ItemArticlesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ArticleAdapter.MyViewHolder, position: Int) {
+        val article = getItem(position)
+        holder.bind(article)
     }
 
-    class MyViewHolder {
+    class MyViewHolder(private val binding: ItemArticlesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(article: ArticlesItem) {
+            binding.tvAuthor.text = article.author.toString()
+            Glide.with(binding.root)
+                .load(article.urlToImage)
+                .into(binding.ivArticle)
+            binding.tvTitleArticles.text = article.title
+            binding.tvPublishedAt.text = article.publishedAt
+        }
     }
 
     companion object {
-        val DIFF_CALLBACK: DiffUtil.ItemCallback<ArticleEntity> =
-            object : DiffUtil.ItemCallback<ArticleEntity>() {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<ArticlesItem> =
+            object : DiffUtil.ItemCallback<ArticlesItem>() {
                 override fun areItemsTheSame(
-                    oldItem: ArticleEntity,
-                    newItem: ArticleEntity
+                    oldItem: ArticlesItem,
+                    newItem: ArticlesItem
                 ): Boolean {
                     return oldItem.title == newItem.title
                 }
 
                 @SuppressLint("DiffUtilEquals")
                 override fun areContentsTheSame(
-                    oldItem: ArticleEntity,
-                    newItem: ArticleEntity
+                    oldItem: ArticlesItem,
+                    newItem: ArticlesItem
                 ): Boolean {
                     return oldItem == newItem
                 }

@@ -5,4 +5,9 @@
     </style>
 
     <style name="Theme.Asclepius" parent="Base.Theme.Asclepius" />
+
+    <style name="CardImageArticle">
+        <item name="cornerSizeTopLeft">30%</item>
+        <item name="cornerSizeTopRight">30%</item>
+    </style>
 </resources>
