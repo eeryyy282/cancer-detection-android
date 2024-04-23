@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
 
                     is Result.Success -> {
                         binding.progressBar.visibility = View.GONE
-                        val articleData = result.data
+                        val articleData = result.data.filterNotNull()
                         articleAdapter.submitList(articleData)
                     }
 

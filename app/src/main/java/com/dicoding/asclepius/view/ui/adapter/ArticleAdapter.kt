@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.dicoding.asclepius.data.remote.response.ArticlesItem
 import com.dicoding.asclepius.databinding.ItemArticlesBinding
 
-
 class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -24,11 +23,24 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DI
         holder.bind(article)
     }
 
+    override fun submitList(list: List<ArticlesItem>?) {
+        super.submitList(list?.filterNotNullItems())
+    }
+
+    private fun List<ArticlesItem>.filterNotNullItems(): List<ArticlesItem> {
+        return filter { article ->
+            article.author != null &&
+                    article.urlToImage != null &&
+                    article.title != null &&
+                    article.publishedAt != null
+        }
+    }
+
     class MyViewHolder(private val binding: ItemArticlesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: ArticlesItem) {
-            binding.tvAuthor.text = article.author.toString()
+            binding.tvAuthor.text = "Oleh ${article.author.toString()}"
             Glide.with(binding.root)
                 .load(article.urlToImage)
                 .into(binding.ivArticle)
@@ -54,8 +66,8 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DI
                 ): Boolean {
                     return oldItem == newItem
                 }
-
             }
     }
+
 
 }

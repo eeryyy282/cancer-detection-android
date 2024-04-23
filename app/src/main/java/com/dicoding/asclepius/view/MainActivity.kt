@@ -55,7 +55,9 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.PickVisualMedia()
     ) { uri: Uri? ->
         if (uri != null) {
+            currentImageUri = uri
             launchUCrop(uri)
+            showImage()
         } else {
             Log.d("Photo Picker", "Foto tidak ditemukan")
         }
