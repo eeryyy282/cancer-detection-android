@@ -3,7 +3,7 @@
     <string name="camera_x">CameraX</string>
     <string name="camera">Kamera</string>
     <string name="gallery">Galeri</string>
-    <string name="analyze">Analyze</string>
+    <string name="analyze">ANALISIS SEKARANG!</string>
     <string name="result">Hasil Analisis</string>
     <string name="doctor_icon">doctor icon</string>
     <string name="titleWelcome">Skin Cancer Detector</string>
@@ -26,4 +26,8 @@
     <string name="tanggal_publikasi">Tanggal Publikasi</string>
     <string name="author">Author</string>
     <string name="tv_title_history">Riwayat analisis kanker kulit anda akan disimpan di sini</string>
+    <string name="cari_tahu_tentang_kanker">Cari Tahu Tentang Kanker</string>
+    <string name="identifikasi_kenali_dan_cegah">Identifikasi, kenali, dan cegah!</string>
+    <string name="pilih_gambar_yang_ingin_dieteksi">Pilih gambar yang ingin dieteksi</string>
+    <string name="imageforanalyz">imageForAnalyz</string>
 </resources>

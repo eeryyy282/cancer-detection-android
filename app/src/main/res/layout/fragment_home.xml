@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -102,12 +102,23 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/poppins"
-            android:text="Cari Tahu Tentang Kanker"
+            android:text="@string/cari_tahu_tentang_kanker"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cancerScannerHome" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/identifikasi_kenali_dan_cegah"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

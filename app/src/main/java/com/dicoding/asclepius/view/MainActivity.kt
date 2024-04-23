@@ -87,29 +87,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun analyzeImage() {
-        imageClasifierHelper = ImageClassifierHelper(
-            context = this,
-            clasifierListener = object : ImageClassifierHelper.ClassifierLisrener {
-                override fun onError(error: String) {
-                    showToast(error)
-                }
-
-                override fun onResults(result: List<Classifications>?) {
-                    result?.let { it ->
-                        println(it)
-                        val sortedCategory =
-                            it[0].categories.sortedByDescending { it?.score }
-                        val displayResult =
-                            sortedCategory.joinToString("\n") {
-                                "${it.label} " + NumberFormat.getPercentInstance()
-                                    .format(it.score).trim()
-                            }
+        if (currentImageUri != null) {
+            imageClasifierHelper = ImageClassifierHelper(
+                context = this,
+                clasifierListener = object : ImageClassifierHelper.ClassifierLisrener {
+                    override fun onError(error: String) {
+                        showToast(error)
                     }
-                }
 
-            }
-        )
-        currentImageUri?.let { imageClasifierHelper.classifyStaticImage(it) }
+                    override fun onResults(result: List<Classifications>?) {
+                        result?.let { it ->
+                            println(it)
+                            val sortedCategory =
+                                it[0].categories.sortedByDescending { it?.score }
+                            val displayResult =
+                                sortedCategory.joinToString("\n") {
+                                    "${it.label} " + NumberFormat.getPercentInstance()
+                                        .format(it.score).trim()
+                                }
+                        }
+                    }
+
+                }
+            )
+            currentImageUri?.let { imageClasifierHelper.classifyStaticImage(it) }
+        } else {
+            showToast("Pilih gambar terlebih dahulu")
+        }
     }
 
 
