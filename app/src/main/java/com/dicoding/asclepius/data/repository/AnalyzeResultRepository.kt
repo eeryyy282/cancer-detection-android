@@ -1,5 +1,6 @@
 package com.dicoding.asclepius.data.repository
 
+import androidx.lifecycle.LiveData
 import com.dicoding.asclepius.data.local.entity.AnalyzeResultEntity
 import com.dicoding.asclepius.data.local.room.AnalyzeResultDao
 import com.dicoding.asclepius.utils.AppExecutors
@@ -19,6 +20,10 @@ class AnalyzeResultRepository(
         appExecutors.diskIO.execute {
             analyzeResultDao.deleteAnalyzeResult(analyzeResultEntity)
         }
+    }
+
+    fun showAnalyzeResult(): LiveData<List<AnalyzeResultEntity>> {
+        return analyzeResultDao.showAnalyzeResult()
     }
 
     fun getAnalyzeResultByUri(imageUri: String, callback: (AnalyzeResultEntity?) -> Unit) {

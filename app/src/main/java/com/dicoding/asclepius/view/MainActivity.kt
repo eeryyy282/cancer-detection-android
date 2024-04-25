@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchUCrop(uri: Uri) {
-        val destinationFileName = "cropped_image.jpg"
+        val destinationFileName = "${UUID.randomUUID()}.jpg"
         val destinationUri = Uri.fromFile(File(filesDir, destinationFileName))
 
         val options = UCrop.Options()

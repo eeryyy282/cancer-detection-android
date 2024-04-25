@@ -33,4 +33,6 @@
     <string name="deskripsi_analisis">Hasil dari deteksi tidak sepenuhnya akurat. Pastikan gambar terlihat jelas untuk menambah keakuratan identifikasi.</string>
     <string name="kembali">Kembali</string>
     <string name="simpan">Simpan</string>
+    <string name="analyze_date">Analyze Date</string>
+    <string name="analyze_result">Analyze Result</string>
 </resources>

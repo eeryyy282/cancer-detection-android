@@ -1,6 +1,7 @@
 package com.dicoding.asclepius.data.local.room
 
 import android.net.Uri
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -16,6 +17,9 @@ interface AnalyzeResultDao {
 
     @Query("SELECT * FROM AnalyzeResultEntity WHERE imageUri = :imageUri LIMIT 1")
     fun getAnalyzeResultByUri(imageUri: String): AnalyzeResultEntity?
+
+    @Query("SELECT * FROM AnalyzeResultEntity")
+    fun showAnalyzeResult(): LiveData<List<AnalyzeResultEntity>>
 
     @Delete
     fun deleteAnalyzeResult(analyzeResultEntity: AnalyzeResultEntity)
