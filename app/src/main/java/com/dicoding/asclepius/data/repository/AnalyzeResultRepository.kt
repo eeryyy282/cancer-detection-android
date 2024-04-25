@@ -21,6 +21,16 @@ class AnalyzeResultRepository(
         }
     }
 
+    fun getAnalyzeResultByUri(imageUri: String, callback: (AnalyzeResultEntity?) -> Unit) {
+        appExecutors.diskIO.execute {
+            val result = analyzeResultDao.getAnalyzeResultByUri(imageUri)
+            appExecutors.mainThread.execute {
+                callback(result)
+            }
+        }
+    }
+
+
     companion object {
         private const val TAG = "AnalyzeResultRepository"
 

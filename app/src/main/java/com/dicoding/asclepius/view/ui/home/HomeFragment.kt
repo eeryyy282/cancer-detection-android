@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.asclepius.databinding.FragmentHomeBinding
 import com.dicoding.asclepius.view.MainActivity
 import com.dicoding.asclepius.view.ui.adapter.ArticleAdapter
+import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment() {
 
@@ -70,10 +71,10 @@ class HomeFragment : Fragment() {
                     is Result.Error -> {
                         binding.progressBar.visibility = View.GONE
                         homeViewModel.findArticles()
-                        Toast.makeText(
-                            context,
-                            "Terjadi kesalahan memuat artikel " + result.error,
-                            Toast.LENGTH_SHORT
+                        Snackbar.make(
+                            view,
+                            "Terjadi Kesalahan memuat artikel",
+                            Snackbar.LENGTH_SHORT
                         ).show()
                     }
                 }

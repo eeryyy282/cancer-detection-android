@@ -28,7 +28,7 @@ class ArticleRepository private constructor(
                         callback(Result.Success(articles))
                     }
                 } else {
-                    callback(Result.Error("Gagl mendapatkan artikel : ${response.message()}"))
+                    callback(Result.Error("Gagal mendapatkan artikel : ${response.message()}"))
                     Log.e(TAG, "onfailure: ${response.message()}")
                 }
             }

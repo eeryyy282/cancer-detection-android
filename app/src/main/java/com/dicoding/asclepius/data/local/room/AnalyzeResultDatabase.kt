@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.dicoding.asclepius.data.local.entity.AnalyzeResultEntity
 
 @Database(entities = [AnalyzeResultEntity::class], version = 1)
+@TypeConverters(UriConverter::class)
 abstract class AnalyzeResultDatabase : RoomDatabase() {
     abstract fun analyzeResultDao(): AnalyzeResultDao
 

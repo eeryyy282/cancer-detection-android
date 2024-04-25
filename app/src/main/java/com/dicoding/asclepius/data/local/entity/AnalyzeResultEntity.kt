@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class AnalyzeResultEntity(
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long = 0,
 
     @ColumnInfo(name = "imageUri")
     var imageUri: Uri,
