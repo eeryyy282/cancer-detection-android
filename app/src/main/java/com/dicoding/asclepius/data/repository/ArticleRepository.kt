@@ -1,13 +1,11 @@
-package com.dicoding.asclepius.data
+package com.dicoding.asclepius.data.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import com.dicoding.asclepius.BuildConfig
+import com.dicoding.asclepius.data.Result
 import com.dicoding.asclepius.data.remote.response.ArticleResponse
 import com.dicoding.asclepius.data.remote.response.ArticlesItem
 import com.dicoding.asclepius.data.remote.retrofit.ApiService
-import com.dicoding.asclepius.utils.AppExecutors
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

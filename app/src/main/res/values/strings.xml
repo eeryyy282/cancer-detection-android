@@ -30,4 +30,7 @@
     <string name="identifikasi_kenali_dan_cegah">Identifikasi, kenali, dan cegah!</string>
     <string name="pilih_gambar_yang_ingin_dieteksi">Pilih gambar yang ingin dieteksi</string>
     <string name="imageforanalyz">imageForAnalyz</string>
+    <string name="deskripsi_analisis">Hasil dari deteksi tidak sepenuhnya akurat. Pastikan gambar terlihat jelas untuk menambah keakuratan identifikasi.</string>
+    <string name="kembali">Kembali</string>
+    <string name="simpan">Simpan</string>
 </resources>

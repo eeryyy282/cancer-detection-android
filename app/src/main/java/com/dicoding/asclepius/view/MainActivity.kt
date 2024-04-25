@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageClasifierHelper: ImageClassifierHelper
 
     private var currentImageUri: Uri? = null
+    private var resultAnalyze: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,9 +103,11 @@ class MainActivity : AppCompatActivity() {
                                 it[0].categories.sortedByDescending { it?.score }
                             val displayResult =
                                 sortedCategory.joinToString("\n") {
-                                    "${it.label} " + NumberFormat.getPercentInstance()
+                                    "${it.label}\n" + NumberFormat.getPercentInstance()
                                         .format(it.score).trim()
                                 }
+                            resultAnalyze = displayResult
+                            moveToResult()
                         }
                     }
 
@@ -119,10 +122,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveToResult() {
         val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra(EXTRA_IMAGE, currentImageUri)
+        intent.putExtra(EXTRA_RESULT, resultAnalyze)
         startActivity(intent)
     }
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        const val EXTRA_IMAGE = "extra_image"
+        const val EXTRA_RESULT = "extra_result"
     }
 }

@@ -2,7 +2,7 @@ package com.dicoding.asclepius.view.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.asclepius.data.ArticleRepository
+import com.dicoding.asclepius.data.repository.ArticleRepository
 import com.dicoding.asclepius.di.Injection
 
 class HomeViewModelFactory(
