@@ -3,9 +3,9 @@ package com.dicoding.asclepius.view.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.asclepius.data.repository.ArticleRepository
-import com.dicoding.asclepius.data.remote.response.ArticlesItem
 import com.dicoding.asclepius.data.Result
+import com.dicoding.asclepius.data.remote.response.ArticlesItem
+import com.dicoding.asclepius.data.repository.ArticleRepository
 
 class HomeViewModel(
     private val articleRepository: ArticleRepository

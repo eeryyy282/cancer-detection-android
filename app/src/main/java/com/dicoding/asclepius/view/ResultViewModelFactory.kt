@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.asclepius.data.repository.AnalyzeResultRepository
 import com.dicoding.asclepius.di.Injection
-import java.lang.IllegalArgumentException
 
 class ResultViewModelFactory private constructor(
     private val analyzeResultRepository: AnalyzeResultRepository

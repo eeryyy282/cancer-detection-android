@@ -1,5 +1,6 @@
 package com.dicoding.asclepius.view.ui.history
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import com.dicoding.asclepius.R
 import com.dicoding.asclepius.data.local.entity.AnalyzeResultEntity
 import com.dicoding.asclepius.databinding.FragmentHistoryBinding
 import com.dicoding.asclepius.view.ui.adapter.AnalyzeResultAdapter
@@ -26,6 +26,7 @@ class HistoryFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -35,7 +36,9 @@ class HistoryFragment : Fragment() {
             factory
         }
 
-        val analyzeResultAdapter = AnalyzeResultAdapter()
+        val analyzeResultAdapter = AnalyzeResultAdapter { analyzeResult ->
+            historyViewModel.removeAnalyzeResult(analyzeResult)
+        }
 
         historyViewModel.getAnalyzeResult().observe(viewLifecycleOwner) { result ->
             binding.progressBar2.visibility = View.GONE
@@ -54,7 +57,8 @@ class HistoryFragment : Fragment() {
 
             if (items.isEmpty()) {
                 binding.titleHistory.visibility = View.VISIBLE
-                binding.titleHistory.text = R.string.tv_title_history.toString()
+                binding.titleHistory.text =
+                    "Riwayat analisis kanker kulit anda akan disimpan di sini"
             } else {
                 binding.titleHistory.visibility = View.GONE
             }

@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import com.dicoding.asclepius.data.Result
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.asclepius.data.Result
 import com.dicoding.asclepius.databinding.FragmentHomeBinding
 import com.dicoding.asclepius.view.MainActivity
 import com.dicoding.asclepius.view.ui.adapter.ArticleAdapter
@@ -21,9 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -73,7 +67,7 @@ class HomeFragment : Fragment() {
                         homeViewModel.findArticles()
                         Snackbar.make(
                             view,
-                            "Terjadi Kesalahan memuat artikel",
+                            "Gagal memuat artikel",
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }

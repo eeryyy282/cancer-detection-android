@@ -25,7 +25,6 @@
     <string name="judul_artikel">Judul Artikel</string>
     <string name="tanggal_publikasi">Tanggal Publikasi</string>
     <string name="author">Author</string>
-    <string name="tv_title_history">Riwayat analisis kanker kulit anda akan disimpan di sini</string>
     <string name="cari_tahu_tentang_kanker">Cari Tahu Tentang Kanker</string>
     <string name="identifikasi_kenali_dan_cegah">Identifikasi, kenali, dan cegah!</string>
     <string name="pilih_gambar_yang_ingin_dieteksi">Pilih gambar yang ingin dieteksi</string>
@@ -35,4 +34,5 @@
     <string name="simpan">Simpan</string>
     <string name="analyze_date">Analyze Date</string>
     <string name="analyze_result">Analyze Result</string>
+    <string name="hapus">Hapus</string>
 </resources>

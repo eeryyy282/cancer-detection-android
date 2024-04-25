@@ -2,15 +2,12 @@ package com.dicoding.asclepius.view
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.asclepius.R
-import com.dicoding.asclepius.data.local.entity.AnalyzeResultEntity
-import com.dicoding.asclepius.data.repository.AnalyzeResultRepository
 import com.dicoding.asclepius.databinding.ActivityResultBinding
 import com.dicoding.asclepius.helper.DateHelper
 import com.google.android.material.snackbar.Snackbar
@@ -59,7 +56,11 @@ class ResultActivity : AppCompatActivity() {
             if (imageUri != null && analyzeResult != null) {
                 resultViewModel.saveDetailUser(imageUri, analyzeDate, analyzeResult)
             } else {
-                //("Tidak bisa menyimpan hasil analisis, gambar dan hasil tidak terdeteksi")
+                Toast.makeText(
+                    this,
+                    "Tidak bisa menyimpan hasil analisis, gambar dan hasil tidak terdeteksi",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
