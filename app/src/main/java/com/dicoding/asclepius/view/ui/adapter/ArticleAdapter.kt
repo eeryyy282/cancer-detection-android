@@ -21,7 +21,7 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DI
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ArticleAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val article = getItem(position)
         holder.bind(article)
     }
