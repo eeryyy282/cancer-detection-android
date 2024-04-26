@@ -42,6 +42,7 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DI
     class MyViewHolder(private val binding: ItemArticlesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(article: ArticlesItem) {
             binding.tvAuthor.text = "Oleh ${article.author.toString()}"
             Glide.with(binding.root)
