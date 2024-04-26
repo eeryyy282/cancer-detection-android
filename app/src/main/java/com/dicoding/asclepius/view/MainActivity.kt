@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         if (currentImageUri != null) {
             imageClasifierHelper = ImageClassifierHelper(
                 context = this,
-                clasifierListener = object : ImageClassifierHelper.ClassifierLisrener {
+                classifierListener = object : ImageClassifierHelper.ClassifierListener {
                     override fun onError(error: String) {
                         showToast(error)
                     }

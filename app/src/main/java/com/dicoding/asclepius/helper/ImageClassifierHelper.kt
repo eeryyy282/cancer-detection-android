@@ -23,7 +23,7 @@ class ImageClassifierHelper(
     val maxResult: Int = 1,
     val modelName: String = "cancer_classification.tflite",
     val context: Context,
-    val clasifierListener: ClassifierLisrener?
+    val classifierListener: ClassifierListener?
 ) {
 
     private var imageClassifier: ImageClassifier? = null
@@ -32,7 +32,7 @@ class ImageClassifierHelper(
         setupImageClassifier()
     }
 
-    interface ClassifierLisrener {
+    interface ClassifierListener {
         fun onError(error: String)
         fun onResults(
             result: List<Classifications>?,
@@ -54,7 +54,7 @@ class ImageClassifierHelper(
                 optionBuilder.build()
             )
         } catch (e: IllegalAccessException) {
-            clasifierListener?.onError(context.getString(R.string.image_classifier_failed))
+            classifierListener?.onError(context.getString(R.string.image_classifier_failed))
             Log.e(TAG, e.message.toString())
         }
     }
@@ -77,7 +77,7 @@ class ImageClassifierHelper(
         }.copy(Bitmap.Config.ARGB_8888, true)?.let { bitmap ->
             val tensorImage = imageProcessor.process(TensorImage.fromBitmap(bitmap))
             val result = imageClassifier?.classify(tensorImage)
-            clasifierListener?.onResults(
+            classifierListener?.onResults(
                 result
             )
         }

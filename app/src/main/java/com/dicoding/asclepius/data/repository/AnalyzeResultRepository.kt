@@ -37,7 +37,6 @@ class AnalyzeResultRepository(
 
 
     companion object {
-        private const val TAG = "AnalyzeResultRepository"
 
         @Volatile
         private var instance: AnalyzeResultRepository? = null
